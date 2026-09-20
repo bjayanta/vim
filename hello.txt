@@ -1,0 +1,4 @@
+Hello, Vim!
+I am learning Linux.
+I will becime comfortable with Vim.
+

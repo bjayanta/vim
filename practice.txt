@@ -1,0 +1,8 @@
+Liunux
+Docker
+Redis
+PostgreSQL
+NestJS
+
+I am learing Vim today.
+

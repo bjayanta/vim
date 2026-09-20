@@ -1,0 +1,10 @@
+Linux is an operating system.
+Docker is a container platform.
+Redis is an in-memory database.
+PostgreSQL is a relational database.
+NestJS is a Node.js framework.
+Nginx is a web server.
+Git is a version control system.
+Ubuntu is a Linux distribution.
+This is a test.
+Hello World!

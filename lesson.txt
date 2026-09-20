@@ -1,0 +1,20 @@
+Vim Learning Roadmap
+
+We'll use this progression:
+
+1. Understand Vim's modes
+2. Open/create files
+3. Move around
+4. Insert and edit text
+5. Delete/change text
+6. Copy & paste
+7. Undo/redo
+8. Search
+9. Save/quit
+10. Visual mode
+11. Vim operators + motions
+12. Find/replace
+13. Multiple files
+14. Splits
+15. Vim configuration
+16. Practical Linux/DevOps exercises
