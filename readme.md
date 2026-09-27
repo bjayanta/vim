@@ -16,10 +16,10 @@ Stage 5: Customization & workflow — .vimrc basics, multiple files/buffers/spli
 
 Vim's biggest mental shift from other editors: it has modes. You're not always typing text.
 
-Normal mode — the default. Keys are commands, not text. This is where you move around, delete, copy, etc.
-Insert mode — this is like a normal text editor. What you type appears as text.
-Visual mode — for selecting text (we'll get here in Stage 4).
-Command-line mode — for things like saving, quitting, search-and-replace (triggered by :).
+**Normal mode** — the default. Keys are commands, not text. This is where you move around, delete, copy, etc.
+**Insert mode** — this is like a normal text editor. What you type appears as text.
+**Visual mode** — for selecting text (we'll get here in Stage 4).
+**Command-line mode** — for things like saving, quitting, search-and-replace (triggered by :).
 
 The #1 beginner confusion: you open vim, start typing, and letters don't appear — or worse, weird things happen. That's because you're in Normal mode, and every letter is a command.
 
@@ -139,3 +139,59 @@ Once files get long, jumping word-by-word isn't enough — you need to search.
 | \*       | search for the word under the cursor (forward) |
 
 Search wraps around the file by default, so if you keep pressing n you'll loop back to the top.
+
+## Stage 3, Step 2: Line numbers and marks
+
+Line numbers
+
+Seeing line numbers makes jumping around much easier.
+
+| Command             | Effect                                                               |
+| ------------------- | -------------------------------------------------------------------- |
+| :set number         | show line numbers                                                    |
+| :set nonumber       | hide them again                                                      |
+| :set relativenumber | show numbers relative to your cursor line (great for counts like 5j) |
+
+Once numbers are on, you can jump straight to a line: :42 (colon + number) or 42G takes you to line 42.
+
+## Stage 4, Step 1: The verb + motion pattern (vim's superpower)
+
+You've already seen pieces of this: dd, dw, yy, yw. Now let's make the pattern explicit, because once it clicks, vim editing speed jumps dramatically.
+
+The formula: verb + motion (or verb + text object)
+
+Verbs you already know:
+
+**d** = delete
+**y** = yank (copy)
+**New one: c** = change (delete + drop you into Insert mode, for when you're about to retype something)
+
+Motions you already know: w, b, e, $, 0, G, j, k, etc.
+
+So you can now combine any verb with any motion:
+
+| Combo | Meaning                                              |
+| ----- | ---------------------------------------------------- |
+| dw    | delete to next word                                  |
+| d$    | delete to end of line                                |
+| cw    | change to next word (delete word, enter Insert mode) |
+| c$    | change to end of line                                |
+| y$    | yank to end of line                                  |
+| dG    | delete from cursor to end of file                    |
+| dgg   | delete from cursor to start of file                  |
+
+---
+
+Text objects — an even more powerful motion type
+
+Instead of "to the next word," you can target a thing: "this word," "this quoted string," "these parentheses."
+
+| Command | Targets                                                           |
+| ------- | ----------------------------------------------------------------- |
+| diw     | delete inner word (the word itself, cursor can be anywhere in it) |
+| daw     | delete a word (word + trailing space)                             |
+| di"     | delete inside quotes "..."                                        |
+| di(     | delete inside parentheses (...)                                   |
+| ci"     | change inside quotes — deletes contents, drops you in Insert mode |
+
+diw is one of the most-used commands in all of vim — it doesn't matter where your cursor is inside the word, it grabs the whole thing.
